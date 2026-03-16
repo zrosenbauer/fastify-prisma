@@ -36,7 +36,7 @@ jobs:
         ## We have to run this first to get the version (even though we double generate the notes)
         ## @todo - refactor this to only run once OR a new action that can be used to get the version
       - name: '🧮 Calculate Version'
-        uses: release-drafter/release-drafter@v6
+        uses: release-drafter/release-drafter@v7
         id: calculate-version
         if: ${{ inputs.version == 'calculate' }}
         env:
@@ -73,7 +73,7 @@ jobs:
           git push origin HEAD --force
 
       - name: '📝 Generate Release Notes'
-        uses: release-drafter/release-drafter@v6
+        uses: release-drafter/release-drafter@v7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

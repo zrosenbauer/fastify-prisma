@@ -4,6 +4,15 @@
 [![ci: Code Standards & Testing](https://github.com/joggrdocs/fastify-prisma/actions/workflows/ci.yaml/badge.svg)](https://github.com/joggrdocs/fastify-prisma/actions/workflows/ci.yaml)
 [![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 
+> [!WARNING]
+> **This package has been renamed.** `@joggr/fastify-prisma` is deprecated and will no longer receive updates after `v7.0.1`. Future releases are published as [`@zrosenbauer/fastify-prisma`](https://www.npmjs.com/package/@zrosenbauer/fastify-prisma). The canonical repository is now [`zrosenbauer/fastify-prisma`](https://github.com/zrosenbauer/fastify-prisma).
+>
+> To migrate:
+> ```diff
+> - npm i @joggr/fastify-prisma
+> + npm i @zrosenbauer/fastify-prisma
+> ```
+
 Fastify Prisma plugin to share the same `PrismaClient` across your entire server.
 
 ```typescript

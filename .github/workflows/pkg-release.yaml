@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  # Manual trigger for the publish step after merging a Version Packages PR.
+  # Merges authored by the workflow's GITHUB_TOKEN don't re-trigger workflows,
+  # so this is the supported way to kick off the publish leg.
+  workflow_dispatch:
 
 concurrency:
   group: release-${{ github.ref }}
@@ -13,7 +17,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    # Trusted publishing requires id-token: write on the publish job.
+    # Trusted publishing handles npm auth via OIDC (id-token: write).
     # contents: write lets changesets/action push the Version Packages PR branch and create GitHub releases.
     # pull-requests: write lets it open/update the Version Packages PR.
     permissions:
@@ -25,7 +29,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          token: ${{ secrets.GH_BOT_TOKEN }}
 
       - name: '🟢 Use Node.js'
         uses: actions/setup-node@v6
@@ -47,7 +50,7 @@ jobs:
 
       # If there are unconsumed changesets, this opens/updates a "Version Packages" PR.
       # If there are none (the Version Packages PR was just merged), it runs the publish
-      # script, which publishes to npm via trusted publishing — no NPM_TOKEN needed.
+      # script, which publishes to npm via trusted publishing — no npm token needed.
       #
       # `yarn run` is used to invoke our scripts rather than `yarn version`/`yarn publish`,
       # which collide with Yarn 4 built-in commands.
@@ -59,4 +62,4 @@ jobs:
           commit: 'chore(release): version packages'
           title: 'chore(release): version packages'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

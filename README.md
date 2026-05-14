@@ -105,20 +105,3 @@ The table below shows the compatibility matrix.
 ## License
 
 Licensed under MIT.
-
-<!-- sign up footer -->
-<br>
-<hr>
-<h2 align="center">
-   ⚡️ Want to sign up for Joggr?
-</h2>
-<p align="center">
-    You can sign up for free at our website:  <a href="https://www.joggr.io/signup?utm_source=github&utm_medium=org-readme&utm_campaign=static-docs">https://joggr.io</a><br>
-    (or click button below 👇)
-</p>
-<p align="center">
-  <a href="https://www.joggr.io/signup?utm_source=github&utm_medium=org-readme&utm_campaign=static-docs">
-    <img src="https://assets.joggr.io/github/badges/signup-badge.svg" width="250px" alt="Sign up" />
-  </a>
-</p>
-<br>

@@ -1,0 +1,63 @@
+name: 'pkgs: Release'
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    # Trusted publishing requires id-token: write on the publish job.
+    # contents: write lets changesets/action push the Version Packages PR branch and create GitHub releases.
+    # pull-requests: write lets it open/update the Version Packages PR.
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: '🛒 Checkout Code'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_BOT_TOKEN }}
+
+      - name: '🟢 Use Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+
+      # npm trusted publishing (OIDC) requires npm >= 11.5.1.
+      # Node 22 ships an older npm, so install the latest.
+      - name: '🆕 Upgrade npm (>= 11.5.1 for OIDC)'
+        run: npm install -g npm@latest
+
+      - name: '📦 Install Packages'
+        run: yarn --immutable --immutable-cache --check-cache
+
+      - name: '▲ Generate Prisma Client for Tests'
+        working-directory: tests
+        run: yarn prisma:generate
+
+      - name: '🏗️ Build'
+        run: yarn build
+
+      # If there are unconsumed changesets, this opens/updates a "Version Packages" PR.
+      # If there are none (the Version Packages PR was just merged), it runs `yarn release`
+      # which publishes to npm via trusted publishing — no NPM_TOKEN needed.
+      - name: '🚀 Create Release PR or Publish'
+        uses: changesets/action@v1
+        with:
+          version: yarn version
+          publish: yarn release
+          commit: 'chore(release): version packages'
+          title: 'chore(release): version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_BOT_TOKEN }}

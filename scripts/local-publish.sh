@@ -86,9 +86,11 @@ yarn build
 
 log "commit + tag"
 git commit -am "[🤖 npm-publish]: $NEW_VER ($BUMP)"
-git tag "$TAG"
+git tag -a "$TAG" -m "$NEW_VER"
 
-# Roll back the local commit/tag if anything past this point fails.
+# Roll back the local commit + tag if anything fails BEFORE the publish lands.
+# Once npm publish succeeds, the rollback is lifted — the artifact is on the
+# registry and resetting local state would only desync from origin.
 rollback() {
   echo
   log "rolling back local commit + tag"
@@ -111,15 +113,20 @@ fi
 log "publish"
 npm publish --access public
 
+# Publish succeeded — lift the rollback trap. Anything below is recoverable
+# manually (push tag, retry gh release) and should not unwind local state.
+trap - ERR
+
 # --- push + release ----------------------------------------------------------
 
-log "push main + tag"
-git push origin main --follow-tags
+log "push main"
+git push origin main
+
+log "push tag $TAG"
+git push origin "$TAG"
 
 log "GH release"
 gh release create "$TAG" --generate-notes --title "$TAG"
-
-trap - ERR
 
 # --- done --------------------------------------------------------------------
 

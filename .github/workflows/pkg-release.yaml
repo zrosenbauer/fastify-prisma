@@ -50,13 +50,13 @@ jobs:
         run: yarn build
 
       # If there are unconsumed changesets, this opens/updates a "Version Packages" PR.
-      # If there are none (the Version Packages PR was just merged), it runs `yarn release`
+      # If there are none (the Version Packages PR was just merged), it runs `yarn publish`
       # which publishes to npm via trusted publishing — no NPM_TOKEN needed.
       - name: '🚀 Create Release PR or Publish'
         uses: changesets/action@v1
         with:
           version: yarn version
-          publish: yarn release
+          publish: yarn publish
           commit: 'chore(release): version packages'
           title: 'chore(release): version packages'
         env:

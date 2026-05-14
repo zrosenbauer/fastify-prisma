@@ -38,7 +38,7 @@
     "test": "vitest",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "changeset publish"
+    "publish": "changeset publish"
   },
   "repository": {
     "type": "git",

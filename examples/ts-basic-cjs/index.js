@@ -1,5 +1,5 @@
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 
 dotenv.config();
 
-require('./dist/server.js');
+require("./dist/server.js");

@@ -5,10 +5,5 @@
     "outDir": "./dist"
   },
   "include": ["src/**/*"],
-  "exclude": [
-    "examples/**/*",
-    "node_modules/**/*",
-    "tests",
-    "vitest.config.mts"
-  ]
+  "exclude": ["examples/**/*", "node_modules/**/*", "tests", "vitest.config.mts"]
 }

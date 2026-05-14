@@ -3,8 +3,9 @@
 # Publish the package to npm from your local machine. Mirrors the CI workflow:
 #   clean → install → bump → verify → build → commit + tag → publish → push → GH release.
 #
-# Local-only. The CI workflow (`.github/workflows/pkg-npm-publish.yaml`) is the
-# normal release path — use this when you need to ship a release by hand.
+# Local-only. The CI workflow (`.github/workflows/pkg-release.yaml`) is the
+# normal release path (Changesets + npm Trusted Publishing) — use this when
+# you need to ship a release by hand.
 #
 # Usage:
 #   scripts/local-publish.sh [patch|minor|major|<semver>]   # default: patch
@@ -55,17 +56,17 @@ gh auth status >/dev/null 2>&1 || die "gh not authenticated (run: gh auth login)
 # --- clean + install ---------------------------------------------------------
 
 log "clean"
-yarn clean
+pnpm clean
 rm -f ./*.tgz
 find . -name '*.tsbuildinfo' -not -path './node_modules/*' -delete 2>/dev/null || true
 
 log "install"
-yarn install --immutable
+pnpm install --frozen-lockfile
 
 # --- bump --------------------------------------------------------------------
 
 log "bump ($BUMP)"
-yarn version "$BUMP"
+pnpm version "$BUMP" --no-git-tag-version
 NEW_VER="$(node -p "require('./package.json').version")"
 TAG="v$NEW_VER"
 PKG="$(node -p "require('./package.json').name")"
@@ -74,13 +75,13 @@ echo "  $PKG → $NEW_VER ($TAG)"
 # --- verify ------------------------------------------------------------------
 
 log "verify"
-yarn prisma:generate
-yarn analyze:types
-yarn analyze:ci
-yarn test run
+pnpm prisma:generate
+pnpm analyze:types
+pnpm analyze:ci
+pnpm test run
 
 log "build"
-yarn build
+pnpm build
 
 # --- commit + tag (local only; pushed after publish succeeds) ----------------
 

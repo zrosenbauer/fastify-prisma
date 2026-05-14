@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn biome check --staged --no-errors-on-unmatched --fix
+pnpm exec oxlint --fix
+pnpm exec oxfmt
 git add .

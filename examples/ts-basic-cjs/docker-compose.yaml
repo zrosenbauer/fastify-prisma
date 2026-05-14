@@ -1,10 +1,10 @@
-name: 'ts-basic-cjs'
+name: "ts-basic-cjs"
 services:
   postgres-db:
     image: postgres:10.3
     restart: always
     ports:
-      - '2345:5432'
+      - "2345:5432"
     environment:
       POSTGRES_USER: prisma
       POSTGRES_PASSWORD: prisma

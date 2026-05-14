@@ -1,22 +1,22 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function main() {
   const alice = await prisma.rubberDucky.upsert({
-    where: { email: 'alice@prisma.io' },
+    where: { email: "alice@prisma.io" },
     update: {},
     create: {
-      email: 'alice@prisma.io',
-      name: 'Alice',
+      email: "alice@prisma.io",
+      name: "Alice",
     },
   });
   const bob = await prisma.rubberDucky.upsert({
-    where: { email: 'bob@prisma.io' },
+    where: { email: "bob@prisma.io" },
     update: {},
     create: {
-      email: 'bob@prisma.io',
-      name: 'Bob',
+      email: "bob@prisma.io",
+      name: "Bob",
     },
   });
   console.log({ alice, bob });

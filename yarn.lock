@@ -622,7 +622,7 @@ __metadata:
   dependencies:
     "@biomejs/biome": "npm:^2.3.13"
     "@prisma/adapter-better-sqlite3": "npm:7.3.0"
-    "@prisma/client": "npm:7.3.0"
+    "@prisma/client": "npm:7.8.0"
     "@tsconfig/recommended": "npm:^1.0.13"
     "@types/better-sqlite3": "npm:^7.6.13"
     better-sqlite3: "npm:^12.6.2"
@@ -738,18 +738,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/client-runtime-utils@npm:7.3.0":
-  version: 7.3.0
-  resolution: "@prisma/client-runtime-utils@npm:7.3.0"
-  checksum: 10/116e19c8bbb9af7119a1a873a463ccd62c22c9ff6222af2c5477c0784a80ca48a27f5381694266bede99b9074dc7bce1e2584b13b5eff9c63793ba0861798ebe
+"@prisma/client-runtime-utils@npm:7.8.0":
+  version: 7.8.0
+  resolution: "@prisma/client-runtime-utils@npm:7.8.0"
+  checksum: 10/759a02392f562a4118991dcd5a68393a6e26e1881b28bf01082e05751b84d27790a3cbd550bc317da617af97746432d411a6138268b45676696b18a264a5f2a7
   languageName: node
   linkType: hard
 
-"@prisma/client@npm:7.3.0":
-  version: 7.3.0
-  resolution: "@prisma/client@npm:7.3.0"
+"@prisma/client@npm:7.8.0":
+  version: 7.8.0
+  resolution: "@prisma/client@npm:7.8.0"
   dependencies:
-    "@prisma/client-runtime-utils": "npm:7.3.0"
+    "@prisma/client-runtime-utils": "npm:7.8.0"
   peerDependencies:
     prisma: "*"
     typescript: ">=5.4.0"
@@ -758,7 +758,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 10/8ad3ebb9441047657d2083f4f08991f4b369ce2080930aa0baca30fe6c6deb7397bf3f06f8d21a076360c020aea1d4d1adbf47f791f943e51a60f657851913a5
+  checksum: 10/2fd38335ec789e7f27b9c28b0c5dbe78e43a44f7288a08e8562517b63d35e43082639a8bf96939013a959d651b3955a33575312fc3670a202d3b81a4448ce7b4
   languageName: node
   linkType: hard
 

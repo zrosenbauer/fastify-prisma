@@ -1,5 +1,5 @@
 {
-  "name": "@joggr/fastify-prisma",
+  "name": "@zrosenbauer/fastify-prisma",
   "version": "7.0.1",
   "description": "Fastify Prisma plugin connection to share the same connection across your entire server.",
   "main": "./dist/index.cjs",
@@ -42,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joggrdocs/fastify-prisma.git"
+    "url": "git+https://github.com/zrosenbauer/fastify-prisma.git"
   },
   "keywords": [
     "fastify",
@@ -50,12 +50,12 @@
     "prisma",
     "fastify-plugin"
   ],
-  "author": "Joggr Engineering <engineering@joggr.io>",
+  "author": "Zac Rosenbauer <me@zrosenbauer.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joggrdocs/fastify-prisma/issues"
+    "url": "https://github.com/zrosenbauer/fastify-prisma/issues"
   },
-  "homepage": "https://github.com/joggrdocs/fastify-prisma#readme",
+  "homepage": "https://github.com/zrosenbauer/fastify-prisma#readme",
   "devDependencies": {
     "@biomejs/biome": "^2.3.13",
     "@changesets/changelog-github": "^0.7.0",

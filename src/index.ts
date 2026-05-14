@@ -10,16 +10,6 @@ import fp from 'fastify-plugin';
 |
 */
 
-process.emitWarning(
-  '`@joggr/fastify-prisma` has been renamed to `@zrosenbauer/fastify-prisma`. ' +
-    'The `@joggr` scope will not receive further updates after v7.0.1. ' +
-    'See https://github.com/zrosenbauer/fastify-prisma for the latest release.',
-  {
-    type: 'DeprecationWarning',
-    code: 'JOGGR_FASTIFY_PRISMA_RENAMED',
-  }
-);
-
 declare namespace fastifyPrisma {
   export type FastifyPrismaOptions = {
     /**
@@ -80,7 +70,7 @@ export default fp(
     }
   },
   {
-    name: '@joggr/fastify-prisma',
+    name: '@zrosenbauer/fastify-prisma',
     fastify: '5.x',
   }
 );

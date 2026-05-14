@@ -19,7 +19,7 @@ We take our open source community seriously and hold ourselves and other contrib
 
 Contributions are made to this repo via Issues and Pull Requests (PRs). A few general guidelines that cover both:
 
-* To report security vulnerabilities, please email <mailto:security@joggr.io>.
+* To report security vulnerabilities, please email <mailto:me@zrosenbauer.com>.
 * Search for existing Issues and PRs before creating your own.
 * We work hard to makes sure issues are handled in a timely manner but, depending on the impact, it could take a while to investigate the root cause. A friendly ping in the comment thread to the submitter or a contributor can help draw attention if your issue is blocking.
 
@@ -36,7 +36,7 @@ PRs to our libraries are always welcome and can be a quick way to get your fix o
 * Only fix/add the functionality in question **OR** address wide-spread whitespace/style issues, not both.
 * Add unit or integration tests for fixed or changed functionality (if a test suite already exists).
 * Address a single concern in the least number of changed lines as possible.
-* Include documentation in the repo or on our [docs site](https://docs.joggr.io).
+* Include documentation in the repo when behavior changes.
 * Be accompanied by a complete Pull Request template (loaded automatically when a PR is created).
 
 For changes that address core functionality or would require breaking changes (e.g. a major release), it's best to open an Issue to discuss your proposal first. This is not required but can save time creating and reviewing changes.
@@ -63,10 +63,11 @@ husky install
 
 ## Publishing
 
-All releases (published versions of the package) are handled via the GitHub release publishing process. Release notes are automatically created based on the merged pull requests. To cut a release you need to do the following:
+Releases are driven by [Changesets](https://github.com/changesets/changesets) and npm [Trusted Publishing](https://docs.npmjs.com/trusted-publishers).
 
-1. Go to the action tab and run the "pkgs: Publish to npm registry" workflow
-2. Select the 'calculate' option for the version (only use 'major', 'minor', or 'patch' if you know what you're doing)
-3. Click the "Run workflow" button
-4. Wait for the workflow to complete
-5. Profit 💸
+1. When you make a user-visible change, run `yarn changeset` and follow the prompts to write a changeset file describing the bump (`patch` / `minor` / `major`) and the change.
+2. Commit the generated `.changeset/<id>.md` alongside your PR.
+3. After your PR merges to `main`, the release workflow opens (or updates) a "Version Packages" PR that bumps `package.json` + writes `CHANGELOG.md` from any pending changesets.
+4. Merging the "Version Packages" PR triggers the workflow to publish to npm via Trusted Publishing — no token required.
+
+If you need to publish from your local machine (escape hatch), see `scripts/local-publish.sh`.

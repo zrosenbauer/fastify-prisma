@@ -1,4 +1,4 @@
-import fastifyPrisma from '@joggr/fastify-prisma';
+import fastifyPrisma from '@zrosenbauer/fastify-prisma';
 import Fastify from 'fastify';
 import rubberDuckies from '#/routes/rubber-duckies.js';
 import { PrismaClient } from '#prisma/client';

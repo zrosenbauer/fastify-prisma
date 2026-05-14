@@ -892,33 +892,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@joggr/fastify-prisma@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@joggr/fastify-prisma@workspace:."
-  dependencies:
-    "@biomejs/biome": "npm:^2.3.13"
-    "@changesets/changelog-github": "npm:^0.7.0"
-    "@changesets/cli": "npm:^2.31.0"
-    "@prisma/adapter-better-sqlite3": "npm:7.3.0"
-    "@prisma/client": "npm:7.3.0"
-    "@tsconfig/recommended": "npm:^1.0.13"
-    "@types/better-sqlite3": "npm:^7.6.13"
-    better-sqlite3: "npm:^12.6.2"
-    fastify: "npm:^5.7.2"
-    fastify-plugin: "npm:^5.1.0"
-    husky: "npm:^9.1.7"
-    pkgroll: "npm:^2.23.0"
-    prisma: "npm:7.3.0"
-    rimraf: "npm:^6.1.2"
-    type-fest: "npm:^5.4.3"
-    typescript: "npm:^5.9.3"
-    vite-tsconfig-paths: "npm:^6.0.5"
-    vitest: "npm:^4.0.18"
-  peerDependencies:
-    fastify: 5.x
-  languageName: unknown
-  linkType: soft
-
 "@jridgewell/sourcemap-codec@npm:^1.5.0":
   version: 1.5.0
   resolution: "@jridgewell/sourcemap-codec@npm:1.5.0"
@@ -1599,6 +1572,33 @@ __metadata:
   checksum: 10/e8b2ad7bc35b2bc5590f9dc1d1a67644755da416b47ab7099a6f26792903fa0aacb81e6ba99f0f03858d9d3a1d76eeba65150a1a0849690a40817424e749c367
   languageName: node
   linkType: hard
+
+"@zrosenbauer/fastify-prisma@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@zrosenbauer/fastify-prisma@workspace:."
+  dependencies:
+    "@biomejs/biome": "npm:^2.3.13"
+    "@changesets/changelog-github": "npm:^0.7.0"
+    "@changesets/cli": "npm:^2.31.0"
+    "@prisma/adapter-better-sqlite3": "npm:7.3.0"
+    "@prisma/client": "npm:7.3.0"
+    "@tsconfig/recommended": "npm:^1.0.13"
+    "@types/better-sqlite3": "npm:^7.6.13"
+    better-sqlite3: "npm:^12.6.2"
+    fastify: "npm:^5.7.2"
+    fastify-plugin: "npm:^5.1.0"
+    husky: "npm:^9.1.7"
+    pkgroll: "npm:^2.23.0"
+    prisma: "npm:7.3.0"
+    rimraf: "npm:^6.1.2"
+    type-fest: "npm:^5.4.3"
+    typescript: "npm:^5.9.3"
+    vite-tsconfig-paths: "npm:^6.0.5"
+    vitest: "npm:^4.0.18"
+  peerDependencies:
+    fastify: 5.x
+  languageName: unknown
+  linkType: soft
 
 "abbrev@npm:^3.0.0":
   version: 3.0.1

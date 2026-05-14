@@ -136,7 +136,4 @@ cat <<EOF
   npm:    https://www.npmjs.com/package/${PKG}/v/${NEW_VER}
   github: https://github.com/zrosenbauer/fastify-prisma/releases/tag/${TAG}
 
-If this is the final @joggr/* patch, deprecate now:
-  npm deprecate "$PKG@*" "Renamed to @zrosenbauer/fastify-prisma. See https://github.com/zrosenbauer/fastify-prisma."
-
 EOF

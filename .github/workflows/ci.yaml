@@ -19,11 +19,11 @@ jobs:
       pull-requests: write
     steps:
       - name: '⬇️ Checkout Code'
-        uses: actions/checkout@v4
-      - name: '💚 Use Node.js v20'
-        uses: actions/setup-node@v4
+        uses: actions/checkout@v6
+      - name: '💚 Use Node.js v24'
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
       - name: '📦 Install Packages'
         run: yarn --immutable --immutable-cache --check-cache
       - name: '🎨 Code Formatting & Linting'
@@ -31,7 +31,6 @@ jobs:
       - name: '🟦 Typecheck'
         run: yarn analyze:types
       - name: '▲ Generate Prisma Client for Tests'
-        working-directory: tests 
         run: yarn prisma:generate
       - name: '⚡️ Test'
         id: test

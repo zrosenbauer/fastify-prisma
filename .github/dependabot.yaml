@@ -1,20 +1,34 @@
 version: 2
 updates:
+  # npm — one PR per dependency-type per week. The auto-merge job in
+  # .github/workflows/ci.yaml merges these automatically when CI is green.
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
       interval: 'weekly'
-    labels:
-      - "type: dependencies"
+      day: 'monday'
+    open-pull-requests-limit: 5
     groups:
-      ## Fastify
-      # @see https://github.com/fastify
-      fastify:
-        patterns:
-          - 'fastify*'
-          - '@fastify*'
-          - '*fastify*'
+      production-dependencies:
+        dependency-type: 'production'
+        update-types:
+          - 'major'
+          - 'minor'
+          - 'patch'
+      development-dependencies:
+        dependency-type: 'development'
+        update-types:
+          - 'major'
+          - 'minor'
+          - 'patch'
+
+  # GitHub Actions — one bundled PR per week.
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
       interval: 'weekly'
+      day: 'monday'
+    groups:
+      github-actions:
+        patterns:
+          - '*'

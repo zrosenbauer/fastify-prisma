@@ -37,17 +37,24 @@ jobs:
         run: yarn test
 
   dependabot:
-    name: 'Dependabot (auto-merge)'
+    name: 'Dependabot (auto-approve + auto-merge)'
     needs: [ci]
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     timeout-minutes: 5
-    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'}}
+    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
     steps:
-      - name: Enable auto-merge for Dependabot PRs
-        run: gh pr merge --auto --squash "$PR_URL" 
+      # Branch protection on `main` requires an approving review. The GH_BOT_TOKEN
+      # belongs to a different identity than dependabot[bot], so it can approve.
+      - name: Auto-approve
+        run: gh pr review --approve "$PR_URL"
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+      - name: Enable auto-merge
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.GH_BOT_TOKEN }}

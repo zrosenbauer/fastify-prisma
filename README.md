@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/%40zrosenbauer/fastify-prisma)](https://www.npmjs.com/package/@zrosenbauer/fastify-prisma)
 [![ci: Code Standards & Testing](https://github.com/zrosenbauer/fastify-prisma/actions/workflows/ci.yaml/badge.svg)](https://github.com/zrosenbauer/fastify-prisma/actions/workflows/ci.yaml)
-[![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
+[![Linted with oxlint](https://img.shields.io/badge/Linted_with-oxlint-cc0000?style=flat&logo=rust)](https://oxc.rs/docs/guide/usage/linter.html)
 
 Fastify Prisma plugin to share the same `PrismaClient` across your entire server.
 
@@ -45,8 +45,8 @@ pnpm add @zrosenbauer/fastify-prisma
 #### `javascript`
 
 ```javascript
-const fastifyPrisma = require('@zrosenbauer/fastify-prisma');
-const { PrismaClient } = require('../my-prisma-client');
+const fastifyPrisma = require("@zrosenbauer/fastify-prisma");
+const { PrismaClient } = require("../my-prisma-client");
 
 await fastify.register(fastifyPrisma, {
   client: new PrismaClient(),
@@ -56,11 +56,11 @@ await fastify.register(fastifyPrisma, {
 #### `typescript`
 
 ```typescript
-import fastifyPrisma from '@zrosenbauer/fastify-prisma';
-import { PrismaClient } from '../my-prisma-client';
+import fastifyPrisma from "@zrosenbauer/fastify-prisma";
+import { PrismaClient } from "../my-prisma-client";
 
 // Add this so you get types across the board
-declare module 'fastify' {
+declare module "fastify" {
   interface FastifyInstance {
     prisma: PrismaClient;
   }
@@ -77,7 +77,7 @@ await fastify.register(fastifyPrisma, {
 ### Accessing the `prisma` client
 
 ```typescript
-async function somePlugin (server, opts) {
+async function somePlugin(server, opts) {
   const ducks = await server.prisma.rubberDucky.findMany();
 
   // do something with the ducks, log for now
@@ -94,10 +94,10 @@ Different versions of this library support different versions of `fastify` and `
 
 The table below shows the compatibility matrix.
 
-| `@zrosenbauer/fastify-prisma` | `fastify` | `@prisma/client` | status       |
-| ----------------------------- | --------- | ---------------- | ------------ |
-| `7.x`                         | `5.x`     | `7.x`            | `active`     |
-| `@joggr/fastify-prisma` `<= 7.0.1` | — | — | `deprecated — renamed to @zrosenbauer/fastify-prisma` |
+| `@zrosenbauer/fastify-prisma`      | `fastify` | `@prisma/client` | status                                                |
+| ---------------------------------- | --------- | ---------------- | ----------------------------------------------------- |
+| `7.x`                              | `5.x`     | `7.x`            | `active`                                              |
+| `@joggr/fastify-prisma` `<= 7.0.1` | —         | —                | `deprecated — renamed to @zrosenbauer/fastify-prisma` |
 
 ## License
 

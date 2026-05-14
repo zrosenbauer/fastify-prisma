@@ -1,5 +1,5 @@
-import { config } from 'dotenv';
+import { config } from "dotenv";
 
 config();
 
-import './dist/server.js';
+import "./dist/server.js";

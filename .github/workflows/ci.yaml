@@ -1,4 +1,4 @@
-name: 'ci: Code Standards & Testing'
+name: "ci: Code Standards & Testing"
 
 on:
   pull_request: {}
@@ -18,26 +18,29 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - name: '⬇️ Checkout Code'
+      - name: "⬇️ Checkout Code"
         uses: actions/checkout@v6
-      - name: '💚 Use Node.js v24'
+      - name: "📦 Setup pnpm"
+        uses: pnpm/action-setup@v4
+      - name: "💚 Use Node.js v24"
         uses: actions/setup-node@v6
         with:
           node-version: 24
-      - name: '📦 Install Packages'
-        run: yarn --immutable --immutable-cache --check-cache
-      - name: '🎨 Code Formatting & Linting'
-        run: yarn analyze:ci
-      - name: '🟦 Typecheck'
-        run: yarn analyze:types
-      - name: '▲ Generate Prisma Client for Tests'
-        run: yarn prisma:generate
-      - name: '⚡️ Test'
+          cache: "pnpm"
+      - name: "📦 Install Packages"
+        run: pnpm install --frozen-lockfile
+      - name: "🎨 Code Formatting & Linting"
+        run: pnpm analyze:ci
+      - name: "🟦 Typecheck"
+        run: pnpm analyze:types
+      - name: "▲ Generate Prisma Client for Tests"
+        run: pnpm prisma:generate
+      - name: "⚡️ Test"
         id: test
-        run: yarn test
+        run: pnpm test run
 
   dependabot:
-    name: 'Dependabot (auto-approve + auto-merge)'
+    name: "Dependabot (auto-approve + auto-merge)"
     needs: [ci]
     runs-on: ubuntu-latest
     permissions:

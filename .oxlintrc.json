@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn",
+    "style": "off"
+  },
+  "rules": {
+    "no-explicit-any": "warn",
+    "no-non-null-assertion": "warn",
+    "no-shadow": "off"
+  },
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "tests/prisma/client",
+    ".changeset",
+    "examples/**/dist"
+  ]
+}

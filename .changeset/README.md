@@ -12,7 +12,7 @@ We have a quick list of common questions to get you started engaging with this p
 Add a changeset for your change:
 
 ```sh
-yarn changeset
+pnpm changeset
 ```
 
 Pick a bump type (`patch` / `minor` / `major`) and write a short summary. Commit the generated

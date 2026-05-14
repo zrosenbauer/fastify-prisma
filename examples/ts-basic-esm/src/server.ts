@@ -1,9 +1,9 @@
-import fastifyPrisma from '@zrosenbauer/fastify-prisma';
-import Fastify from 'fastify';
-import rubberDuckies from '#/routes/rubber-duckies.js';
-import { PrismaClient } from '#prisma/client';
+import fastifyPrisma from "@zrosenbauer/fastify-prisma";
+import Fastify from "fastify";
+import rubberDuckies from "#/routes/rubber-duckies.js";
+import { PrismaClient } from "#prisma/client";
 
-declare module 'fastify' {
+declare module "fastify" {
   interface FastifyInstance {
     prisma: PrismaClient;
   }

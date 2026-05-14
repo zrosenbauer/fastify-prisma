@@ -1,6 +1,8 @@
 {
   "name": "fastify-prisma-example-basic-esm",
   "description": "A basic example using the fastify-prisma plugin as an ESM module",
+  "license": "MIT",
+  "author": "Zac Rosenbauer <me@zrosenbauer.com>",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -13,16 +15,14 @@
     "prisma:deploy": "prisma migrate deploy",
     "prisma:generate": "prisma generate"
   },
-  "author": "Zac Rosenbauer <me@zrosenbauer.com>",
-  "license": "MIT",
   "dependencies": {
-    "@zrosenbauer/fastify-prisma": "file:../../package.tgz",
+    "@prisma/client": "^6.8.2",
     "@swc/cli": "^0.7.7",
     "@swc/core": "^1.11.24",
+    "@zrosenbauer/fastify-prisma": "file:../../package.tgz",
     "dotenv": "^16.5.0",
     "fastify": "^5.3.3",
     "prisma": "^6.8.2",
-    "tsx": "^4.19.4",
-    "@prisma/client": "^6.8.2"
+    "tsx": "^4.19.4"
   }
 }

@@ -74,6 +74,7 @@ echo "  $PKG → $NEW_VER ($TAG)"
 # --- verify ------------------------------------------------------------------
 
 log "verify"
+yarn prisma:generate
 yarn analyze:types
 yarn analyze:ci
 yarn test run

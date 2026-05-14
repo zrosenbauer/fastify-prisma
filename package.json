@@ -1,6 +1,6 @@
 {
   "name": "@zrosenbauer/fastify-prisma",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "Fastify Prisma plugin connection to share the same connection across your entire server.",
   "keywords": [
     "fastify",

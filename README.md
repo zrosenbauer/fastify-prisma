@@ -1,17 +1,8 @@
 # fastify-prisma
 
-[![npm version](https://img.shields.io/npm/v/%40joggr/fastify-prisma)](https://www.npmjs.com/package/@joggr/fastify-prisma)
-[![ci: Code Standards & Testing](https://github.com/joggrdocs/fastify-prisma/actions/workflows/ci.yaml/badge.svg)](https://github.com/joggrdocs/fastify-prisma/actions/workflows/ci.yaml)
+[![npm version](https://img.shields.io/npm/v/%40zrosenbauer/fastify-prisma)](https://www.npmjs.com/package/@zrosenbauer/fastify-prisma)
+[![ci: Code Standards & Testing](https://github.com/zrosenbauer/fastify-prisma/actions/workflows/ci.yaml/badge.svg)](https://github.com/zrosenbauer/fastify-prisma/actions/workflows/ci.yaml)
 [![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
-
-> [!WARNING]
-> **This package has been renamed.** `@joggr/fastify-prisma` is deprecated and will no longer receive updates after `v7.0.1`. Future releases are published as [`@zrosenbauer/fastify-prisma`](https://www.npmjs.com/package/@zrosenbauer/fastify-prisma). The canonical repository is now [`zrosenbauer/fastify-prisma`](https://github.com/zrosenbauer/fastify-prisma).
->
-> To migrate:
-> ```diff
-> - npm i @joggr/fastify-prisma
-> + npm i @zrosenbauer/fastify-prisma
-> ```
 
 Fastify Prisma plugin to share the same `PrismaClient` across your entire server.
 
@@ -34,19 +25,19 @@ Before using this plugin you will need to have [`prisma`](https://www.prisma.io/
 **npm**
 
 ```shell
-npm i @joggr/fastify-prisma
+npm i @zrosenbauer/fastify-prisma
 ```
 
 **yarn**
 
 ```shell
-yarn add @joggr/fastify-prisma
+yarn add @zrosenbauer/fastify-prisma
 ```
 
 **pnpm**
 
 ```shell
-pnpm add @joggr/fastify-prisma
+pnpm add @zrosenbauer/fastify-prisma
 ```
 
 ### Register the plugin
@@ -54,7 +45,7 @@ pnpm add @joggr/fastify-prisma
 #### `javascript`
 
 ```javascript
-const fastifyPrisma = require('@joggr/fastify-prisma');
+const fastifyPrisma = require('@zrosenbauer/fastify-prisma');
 const { PrismaClient } = require('../my-prisma-client');
 
 await fastify.register(fastifyPrisma, {
@@ -65,7 +56,7 @@ await fastify.register(fastifyPrisma, {
 #### `typescript`
 
 ```typescript
-import fastifyPrisma from '@joggr/fastify-prisma';
+import fastifyPrisma from '@zrosenbauer/fastify-prisma';
 import { PrismaClient } from '../my-prisma-client';
 
 // Add this so you get types across the board
@@ -80,7 +71,7 @@ await fastify.register(fastifyPrisma, {
 });
 ```
 
->[!WARN]
+> [!WARNING]
 > Make sure you add in the module declaration or you won't have types!
 
 ### Accessing the `prisma` client
@@ -103,13 +94,10 @@ Different versions of this library support different versions of `fastify` and `
 
 The table below shows the compatibility matrix.
 
-| `@joggrdocs/fastify-prisma` | `fastify` | `@prisma/client`  | status       |
-| ---------------------------- | --------- | ---------------- | ------------ |
-| `7.x`                        | `5.x`     | `7.x`            | `active`     |
-| `6.x`                        | `5.x`     | `6.x`            | `active`     |
-| `5.x`                        | `5.x`     | `6.x`            | `deprecated` |
-| `4.x`                        | `5.x`     | `5.x`            | `deprecated` |
-| `1.x` - `3.x`                | `4.x`     | `4.x \|\| 5.x`   | `deprecated` |
+| `@zrosenbauer/fastify-prisma` | `fastify` | `@prisma/client` | status       |
+| ----------------------------- | --------- | ---------------- | ------------ |
+| `7.x`                         | `5.x`     | `7.x`            | `active`     |
+| `@joggr/fastify-prisma` `<= 7.0.1` | — | — | `deprecated — renamed to @zrosenbauer/fastify-prisma` |
 
 ## License
 

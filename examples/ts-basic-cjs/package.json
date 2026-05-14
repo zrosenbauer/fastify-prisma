@@ -13,10 +13,10 @@
     "prisma:deploy": "prisma migrate deploy",
     "prisma:generate": "prisma generate"
   },
-  "author": "Joggr Engineering <engineering@joggr.io>",
+  "author": "Zac Rosenbauer <me@zrosenbauer.com>",
   "license": "MIT",
   "dependencies": {
-    "@joggr/fastify-prisma": "file:../../package.tgz",
+    "@zrosenbauer/fastify-prisma": "file:../../package.tgz",
     "@prisma/client": "^6.8.2",
     "@swc/cli": "^0.7.7",
     "@swc/core": "^1.11.24",

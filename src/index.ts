@@ -10,6 +10,14 @@ import fp from 'fastify-plugin';
 |
 */
 
+process.emitWarning(
+  '`@joggr/fastify-prisma` has been renamed to `fastify-prisma`. The `@joggr` scope will no longer be published. Migrate by installing `fastify-prisma` from npm. Source: https://github.com/zrosenbauer/fastify-prisma',
+  {
+    type: 'DeprecationWarning',
+    code: 'JOGGR_FASTIFY_PRISMA_RENAMED',
+  }
+);
+
 declare namespace fastifyPrisma {
   export type FastifyPrismaOptions = {
     /**

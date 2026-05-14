@@ -4,6 +4,9 @@
 [![ci: Code Standards & Testing](https://github.com/joggrdocs/fastify-prisma/actions/workflows/ci.yaml/badge.svg)](https://github.com/joggrdocs/fastify-prisma/actions/workflows/ci.yaml)
 [![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 
+> [!WARNING]
+> **`@joggr/fastify-prisma` is being renamed to `fastify-prisma`.** The `@joggr` scope is being retired and future releases will be published under the unscoped `fastify-prisma` package. Migrate by replacing `@joggr/fastify-prisma` with `fastify-prisma` in your dependencies.
+
 Fastify Prisma plugin to share the same `PrismaClient` across your entire server.
 
 ```typescript
